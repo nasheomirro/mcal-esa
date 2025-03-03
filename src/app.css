@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Excalifont";
+  src: url("/fonts/excalifont_regular.ttf"), truetype;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'LT Soul';
+  src: url('/fonts/soul_regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LT Soul';
+  src: url('/fonts/soul_medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LT Soul';
+  src: url('/fonts/soul_semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LT Soul';
+  src: url('/fonts/soul_bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@theme {
+  --color-*: initial;
+  --color-surface-50: #0f0f0f;
+  --color-surface-100: #181818;
+  --color-surface-150: #202020;
+  --color-primary-50: #F2F8ED;
+  --color-primary-100: #E5F2DE;
+  --color-primary-200: #F2F8ED;
+  --color-primary-300: #99D799;
+  --color-primary-400: #78CA85;
+  --color-primary-500: #57BD79;
+  --color-primary-600: #3FA170;
+  --color-primary-700: #328066;
+  --color-primary-800: #255F56;
+  --color-primary-900: #183D3D;
+
+  --default-font-family: "LT Soul", serif;
+  --font-drawn: "Excalifont";
+
+  --radius-*: initial;
+  --radius-sm: 4;
+  --radius-md: 8;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-surface-50);
+    color: var(--color-primary-50);
+  }
+}
