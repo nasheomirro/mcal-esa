@@ -1,7 +1,7 @@
 type WinStrength = 1 | 2 | 3;
 
 /** primary data type for the application's goal */
-type Win = {
+export type Win = {
   id: string;
   ymd: YMD;
   value: string;
@@ -11,7 +11,7 @@ type Win = {
 };
 
 /** extra information explicitly attached to the specified YMD */
-type YMDContext = {
+export type YMDContext = {
   id: string;
   ymd: YMD;
   title: string;
@@ -20,8 +20,8 @@ type YMDContext = {
   createdOn: Date;
 };
 
-type YMD = {
-  y: number;
-  m: number;
-  d: number;
+export type YMD = {
+  year: number;
+  month: number;
+  day: number;
 };
