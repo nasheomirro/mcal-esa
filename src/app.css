@@ -54,8 +54,12 @@
   --font-drawn: "Excalifont";
 
   --radius-*: initial;
-  --radius-sm: 4;
-  --radius-md: 8;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  --shadow-*: initial;
+  --shadow-blur-10: 0 0 10px 0 var(--shadow-color);
+  --shadow-blur-12: 0 0 12px 0 var(--shadow-color);
 }
 
 @layer base {

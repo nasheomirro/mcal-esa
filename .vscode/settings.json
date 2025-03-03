@@ -1,3 +1,11 @@
 {
-  "svelte.enable-ts-plugin": true
+  "svelte.enable-ts-plugin": true,
+  "tailwindCSS.experimental.classRegex": [
+    ["Classes \\=([^;]*);", "'([^']*)'"],
+    ["Classes \\=([^;]*);", "\"([^\"]*)\""],
+    ["Classes \\=([^;]*);", "\\`([^\\`]*)\\`"],
+    ["CLASSES \\=([^;]*);", "'([^']*)'"],
+    ["CLASSES \\=([^;]*);", "\"([^\"]*)\""],
+    ["CLASSES \\=([^;]*);", "\\`([^\\`]*)\\`"]
+  ]
 }
