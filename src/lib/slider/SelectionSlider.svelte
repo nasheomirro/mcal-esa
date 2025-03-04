@@ -35,7 +35,7 @@
   >
     <div class="swiper-wrapper">
       {#each MONTHS as month}
-        <SelectionSlide {month} year={selection.current.year} />
+        <SelectionSlide ymd={{ month, year: selection.current.year }} />
       {/each}
     </div>
   </div>
