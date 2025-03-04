@@ -9,11 +9,11 @@
 
   // store the current selection because of timing issues 
   // with selection.current changing before debounced saves are called.
-  const onMountCurrent = $state.snapshot(selection.current);
+  const onMountSelection = $state.snapshot(selection.current);
   const getCurrentContext = () =>
     $state.snapshot(
       store.contexts.find((context) =>
-        YMDUtils.isMatch(context.ymd, onMountCurrent)
+        YMDUtils.isMatch(context.ymd, onMountSelection)
       )
     );
 
@@ -39,7 +39,7 @@
         value: _draft.value,
         createdOn: now,
         updatedOn: now,
-        ymd: onMountCurrent,
+        ymd: onMountSelection,
       });
     }
   }
@@ -47,7 +47,7 @@
   const debouncedSaveDraft = createDebounce(() => saveDraft(), 400);
 </script>
 
-<div class="flex flex-col">
+<div class="flex flex-col min-h-64">
   <SelectionTitle />
   <input
     bind:value={draft.title}

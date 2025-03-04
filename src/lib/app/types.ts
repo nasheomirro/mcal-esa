@@ -1,4 +1,4 @@
-type WinStrength = 1 | 2 | 3;
+export type WinStrength = 1 | 2 | 3;
 
 /** primary data type for the application's goal */
 export type Win = {
