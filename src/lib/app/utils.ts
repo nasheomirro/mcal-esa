@@ -28,3 +28,17 @@ export class YMDUtils {
     return (Object.keys(a) as (keyof YMD)[]).every((key) => a[key] === b[key]);
   }
 }
+
+export function createDebounce(fn: () => void, timeout: number) {
+  let id: number | null;
+  return () => {
+    if (typeof id === "number") {
+      clearTimeout(id);
+    }
+
+    id = setTimeout(() => {
+      id = null;
+      fn();
+    }, timeout);
+  };
+}
