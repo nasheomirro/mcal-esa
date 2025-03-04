@@ -6,9 +6,10 @@
     placeholder?: string;
     onchange?: HTMLTextareaAttributes["onchange"];
     oninput?: HTMLTextareaAttributes["oninput"];
+    disabled?: HTMLTextareaAttributes["disabled"];
   };
 
-  let { value = $bindable(), placeholder, onchange, oninput }: Props = $props();
+  let { value = $bindable(), placeholder, onchange, oninput, disabled }: Props = $props();
 </script>
 
 <div class="grid grid-cols-[minmax(10px,1fr)]">
@@ -23,6 +24,7 @@
     {placeholder}
     {onchange}
     {oninput}
+    {disabled}
     bind:value
   ></textarea>
 </div>

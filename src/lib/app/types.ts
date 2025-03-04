@@ -12,12 +12,15 @@ export type Win = {
 
 /** extra information explicitly attached to the specified YMD */
 export type YMDContext = {
+  /** id is made through the context's YMD */
   id: string;
   ymd: YMD;
   title: string;
   value: string;
   updatedOn: Date;
   createdOn: Date;
+  /** overrides the default 'locking' from editing on old-enough days */
+  isForcedUnlocked?: boolean;
 };
 
 export type YMD = {

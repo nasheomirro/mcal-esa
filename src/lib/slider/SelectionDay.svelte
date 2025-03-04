@@ -30,6 +30,7 @@
       .reduce((total, { strength }) => total + strength, 0)
   );
 
+
   const activeBgClass = $derived.by(() => {
     if (isDisabled) return BG_CLASSES[0];
     if (points >= 0 && points < 6)

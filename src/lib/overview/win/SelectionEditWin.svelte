@@ -6,6 +6,7 @@
   import ResizableTextArea from "./ResizableTextArea.svelte";
   import WinLayout from "./WinLayout.svelte";
   import { createDebounce } from "$lib/app/utils";
+  import { editing } from "../editing.svelte";
 
   type Props = {
     win: Win;
@@ -26,10 +27,10 @@
   }
 
   const handleKeydown = (e: KeyboardEvent) => {
-    if (e.key === "Backspace" && draft.value === '') {
+    if (e.key === "Backspace" && draft.value === "") {
       store.deleteWin(win.id);
     }
-  }
+  };
 
   const debouncedSaveDraft = createDebounce(() => saveDraft(), 400);
 </script>
@@ -40,6 +41,11 @@
     bind:value={draft.value}
     onkeydown={handleKeydown}
     oninput={debouncedSaveDraft}
+    disabled={editing.disabled}
   />
-  <WinStrengthRadio bind:value={draft.strength} onchange={saveDraft} />
+  <WinStrengthRadio
+    bind:value={draft.strength}
+    onchange={saveDraft}
+    disabled={editing.disabled}
+  />
 </WinLayout>

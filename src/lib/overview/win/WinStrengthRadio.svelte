@@ -5,13 +5,14 @@
   type Props = {
     value: WinStrength;
     onchange?: HTMLInputElement["onchange"];
+    disabled?: HTMLInputElement["disabled"];
   };
 
-  let { value = $bindable(), onchange }: Props = $props();
+  let { value = $bindable(), onchange, disabled }: Props = $props();
 </script>
 
 {#snippet input(v: number)}
-  <label class="cursor-pointer">
+  <label class={!disabled ? "cursor-pointer" : ""}>
     <div class="w-8 h-8 {value < v ? 'opacity-50' : ''}">
       <StrengthIcon />
     </div>
@@ -21,6 +22,7 @@
       value={v}
       type="radio"
       class="hidden"
+      {disabled}
     />
   </label>
 {/snippet}

@@ -23,7 +23,10 @@ class AppStore {
   }
 
   get contexts() {
-    return [...this.#contexts.values()];
+    return {
+      get: this.#contexts.get.bind(this.#contexts),
+      has: this.#contexts.has.bind(this.#contexts),
+    };
   }
 
   async createWin(win: Win) {
@@ -42,7 +45,7 @@ class AppStore {
   ) {
     const stale = await this.#db.get("wins", id);
     if (stale) {
-      const fresh: Win = { ...stale, ...updates };
+      const fresh: Win = { ...stale, ...updates, updatedOn: new Date() };
       await this.#db.put("wins", fresh);
       this.#wins.set(id, fresh);
     }
@@ -50,11 +53,11 @@ class AppStore {
 
   async updateContext(
     id: string,
-    updates: Partial<Pick<YMDContext, "title" | "value">>
+    updates: Partial<Pick<YMDContext, "title" | "value" | "isForcedUnlocked">>
   ) {
     const stale = await this.#db.get("contexts", id);
     if (stale) {
-      const fresh: YMDContext = { ...stale, ...updates };
+      const fresh: YMDContext = { ...stale, ...updates, updatedOn: new Date() };
       await this.#db.put("contexts", fresh);
       this.#contexts.set(id, fresh);
     }

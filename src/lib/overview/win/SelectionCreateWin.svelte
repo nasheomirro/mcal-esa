@@ -4,6 +4,7 @@
   import type { WinStrength } from "$lib/app/types";
   import { selection } from "$lib/app/selection.svelte";
 
+  import { editing } from "../editing.svelte";
   import WinStrengthRadio from "./WinStrengthRadio.svelte";
   import ResizableTextArea from "./ResizableTextArea.svelte";
   import WinLayout from "./WinLayout.svelte";
@@ -43,6 +44,7 @@
     placeholder="had a win? type it here!"
     bind:value={draft.value}
     onkeydown={handleKeydown}
+    disabled={editing.disabled}
   />
   <WinStrengthRadio bind:value={draft.strength} />
 </WinLayout>

@@ -7,9 +7,10 @@
     onchange?: HTMLTextareaAttributes["onchange"];
     oninput?: HTMLTextareaAttributes["oninput"];
     onkeydown?: HTMLTextareaAttributes["onkeydown"];
+    disabled?: HTMLTextareaAttributes["disabled"];
   };
 
-  let { value = $bindable(), placeholder, onchange, oninput, onkeydown }: Props = $props();
+  let { value = $bindable(), placeholder, onchange, oninput, onkeydown, disabled }: Props = $props();
 </script>
 
 <div class="grid grid-cols-[minmax(10px,1fr)] w-full">
@@ -26,6 +27,7 @@
     {onchange}
     {oninput}
     {onkeydown}
+    {disabled}
     bind:value
   ></textarea>
 </div>
