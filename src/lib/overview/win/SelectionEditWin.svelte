@@ -37,7 +37,7 @@
 
 <WinLayout>
   <ResizableTextArea
-    placeholder="had a win? type it here!"
+    placeholder="Press 'Backspace' again to remove this win."
     bind:value={draft.value}
     onkeydown={handleKeydown}
     oninput={debouncedSaveDraft}

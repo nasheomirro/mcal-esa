@@ -34,7 +34,9 @@
   const handleKeydown = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      saveDraft();
+      if (draft.value.length >= 3) {
+        saveDraft();
+      }
     }
   };
 </script>
