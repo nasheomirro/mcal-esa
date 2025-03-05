@@ -8,6 +8,7 @@
   const { ymd }: Props = $props();
 
   const BG_CLASSES = {
+    disabled: "bg-surface-100 opacity-50",
     0: "bg-surface-150 opacity-50",
     1: "bg-primary-900 opacity-50",
     2: "bg-primary-800 opacity-50",
@@ -32,7 +33,7 @@
 
 
   const activeBgClass = $derived.by(() => {
-    if (isDisabled) return BG_CLASSES[0];
+    if (isDisabled) return BG_CLASSES.disabled;
     if (points >= 0 && points < 6)
       return BG_CLASSES[points as keyof typeof BG_CLASSES];
     else return BG_CLASSES[6];
