@@ -18,7 +18,7 @@
   });
 
   function saveDraft() {
-    const now = new Date();
+    const now = new Date().toString();
     store.createWin({
       id: nanoid(),
       ymd: $state.snapshot(selection.current),

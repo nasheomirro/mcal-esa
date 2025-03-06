@@ -6,8 +6,8 @@ export type Win = {
   ymd: YMD;
   value: string;
   strength: WinStrength;
-  updatedOn: Date;
-  createdOn: Date;
+  updatedOn: string;
+  createdOn: string;
 };
 
 /** extra information explicitly attached to the specified YMD */
@@ -17,14 +17,20 @@ export type YMDContext = {
   ymd: YMD;
   title: string;
   value: string;
-  updatedOn: Date;
-  createdOn: Date;
+  updatedOn: string;
+  createdOn: string;
   /** overrides the default 'locking' from editing on old-enough days */
-  isForcedUnlocked?: boolean;
+  isForcedUnlocked: boolean;
 };
 
 export type YMD = {
   year: number;
   month: number;
   day: number;
+};
+
+/** format used for exporting/importing user data */
+export type ExternalJSONData = {
+  wins: Win[];
+  contexts: YMDContext[];
 };

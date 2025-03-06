@@ -26,6 +26,7 @@ class AppStore {
     return {
       get: this.#contexts.get.bind(this.#contexts),
       has: this.#contexts.has.bind(this.#contexts),
+      values: this.#contexts.values.bind(this.#contexts),
     };
   }
 
@@ -45,7 +46,7 @@ class AppStore {
   ) {
     const stale = await this.#db.get("wins", id);
     if (stale) {
-      const fresh: Win = { ...stale, ...updates, updatedOn: new Date() };
+      const fresh: Win = { ...stale, ...updates, updatedOn: new Date().toString() };
       await this.#db.put("wins", fresh);
       this.#wins.set(id, fresh);
     }
@@ -57,7 +58,7 @@ class AppStore {
   ) {
     const stale = await this.#db.get("contexts", id);
     if (stale) {
-      const fresh: YMDContext = { ...stale, ...updates, updatedOn: new Date() };
+      const fresh: YMDContext = { ...stale, ...updates, updatedOn: (new Date()).toString() };
       await this.#db.put("contexts", fresh);
       this.#contexts.set(id, fresh);
     }
@@ -71,6 +72,13 @@ class AppStore {
   async deleteContext(id: string) {
     await this.#db.delete("contexts", id);
     this.#contexts.delete(id);
+  }
+
+  /** CLEARS everything from the db! */
+  async clear() {
+    await Promise.all([this.#db.clear("wins"), this.#db.clear("contexts")]);
+    this.#wins.clear();
+    this.#contexts.clear();
   }
 }
 

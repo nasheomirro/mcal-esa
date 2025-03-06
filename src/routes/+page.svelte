@@ -1,5 +1,6 @@
 <script lang="ts">
-  import SelectionOverview from "$lib/overview/SelectionOverview.svelte";
+  import ExternalControls from "$lib/external/ExternalControls.svelte";
+import SelectionOverview from "$lib/overview/SelectionOverview.svelte";
   import SelectionSlider from "$lib/slider/SelectionSlider.svelte";
 </script>
 
@@ -11,3 +12,5 @@
     <SelectionSlider />
   </div>
 </div>
+
+<ExternalControls />

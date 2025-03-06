@@ -29,7 +29,7 @@
     if (currentContext) {
       store.updateContext(currentContext.id, { ...$state.snapshot(draft) });
     } else {
-      const now = new Date();
+      const now = new Date().toString();
       const _draft = $state.snapshot(draft);
       store.createContext({
         id: YMDUtils.toId(onMountSelection),
